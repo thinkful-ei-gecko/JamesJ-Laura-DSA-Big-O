@@ -229,4 +229,144 @@ Rod A |	Rod B	| Rod C
 // 5) What is the runtime of your algorithm?
 
 // ANSWER: 
-// 1) 
+/* 1) 
+function TOH (num, A, B, C) {
+  if (num === 1)  {
+    console.log(A, 'to', C);
+  }
+  else {
+    TOH(num-1, A, C, B);
+    TOH(1, A, B, C);
+    TOH(num-1, B, A, C);
+  }
+}
+TOH(3, 'A', 'B', 'C');
+*/
+
+//With 5 disks, after 7 recursive calls, the posts have:
+//A: disks 4 and 5
+//B: no disks
+//C: disks 1, 2, and 3
+
+
+//3 disks: 7 steps
+//4 disks:15 steps
+//5 disks:31 steps
+//6 disks: 63 steps
+//7 disks: 127 steps
+
+//This task runs in Exponential time: O(2^n)
+
+//Q1. COUNTING SHEEP 
+//recursive version is Linear, O(n)
+//iterative version is Linear, O(n)
+/* function allSheep(sheep){
+  for (let i=sheep; i>=0; i-- ) {
+    if(i === 0){
+      return console.log('All sheep jumped over the fence');
+    }  
+    console.log(i + ': Another sheep jumps over the fence');
+  }
+}
+allSheep(7); */
+
+//Q2. POWER CALCULATOR 
+//recursive version is Linear, O(n)
+//iterative version is Linear, O(n)
+/* function powerCalculator(base, exponent) {
+  if (exponent < 0) {
+    return console.log('exponent should be >= 0')
+  }
+  let value=1;
+  for(let i=1; i<=exponent; i++) {
+    value = value * base;
+  }
+  return value;
+}
+console.log(powerCalculator(2, 4)); */
+
+
+//Q3. REVERSE STRING 
+//recursive version is Linear, O(n)
+//iterative version is Linear, O(n)
+/* function reverseString(string){
+  let reversed = '';
+  for (let i=string.length; i>0; i--) {
+    reversed += (string[i-1]);
+  }
+  return reversed;
+}
+console.log(reverseString('pots')); */
+
+
+//Q4. NTH TRIANGULAR NUMBER 
+//recursive version is Linear, O(n)
+//linear version is Linear, O(n)
+/* function triangularNumber(num) {
+  let total = 0;
+  for(let i=1; i<=num; i++){
+    total += i;
+  }
+  return total;
+}
+console.log(triangularNumber(4)); */
+
+
+//Q5. STRING SPLITTER 
+//recursive version is Linear, O(n)
+//linear version is Constant, O(1)
+/* function splitter(string, separator){
+  let array = string.split(separator);
+  return array;
+}
+console.log(splitter('02/20/2020', '/'));
+console.log(splitter('11-04-2019', '-'));
+console.log(splitter('12.25.2019', '.'));
+*/
+
+//Q6. FIBONACCI 
+//recursive version is Linear, O(n)
+//linear version is Linear, O(n)
+/* function fib(num) {
+  let a = 1
+  let b = 1
+  for(let i = 0; i < num; i++) {
+    console.log(a);
+    let c = b;
+    b = a + b;
+    a = c;
+  }
+}
+console.log(fib(7));
+*/
+
+
+//Q7. FACTORIAL 
+//recursive version is Linear, O(n)
+//linear version is Linear, O(n)
+function factorialNumber(num) {
+  let total = 1;
+  for(let i=1; i<=num; i++){
+    total = total * i;
+  }
+  return total;
+}
+console.log(factorialNumber(4));
+
+
+//Q8 MAZE ONE PATH this algorithm is Exponential Time, O(2^n)
+//Q9 MAZE ALL PATHS this is Factorial Time, O(n!)
+//Q10 ANAGRAMS is Factorial time, O(n!)
+//Q11 ORGANIZATION CHART is Exponential time, O(2^n)
+
+
+//Q12. BINARY REPRESENTATION --recursive is Logarithmic Time, O(log(n))
+function binaryRep(num) {
+  //base case
+  if(num<=0) {
+    return'';
+  }
+  let remainder = num%2;
+  return binaryRep(Math.floor(num/2)) + remainder
+}
+console.log(binaryRep(9));
